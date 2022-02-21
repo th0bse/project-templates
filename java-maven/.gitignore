@@ -1,0 +1,38 @@
+### Java ###
+
+# Exclude package files
+*.jar
+*.war
+
+# Exclude logfiles
+*.log
+
+# Exclude compiled class files
+*.class
+
+# Exclude JVM crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# exclude serialization files
+*.ser
+
+### IntelliJ IDEA ###
+
+# Exclude IDE-specific configuration
+.idea
+**/.idea/
+
+# exclude plugin configs
+.jpb/
+
+### Maven ###
+# exclude build artifacts
+target/
+# exclude generated files
+dependency-reduced-pom.xml
+
+.DS_Store
+
+### Others ###
+*.swp
+cliff.toml

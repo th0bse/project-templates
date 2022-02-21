@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Create a regex for a conventional commit
+conventional_commit_regex="^(feat|fix|refactor|docs|ci|build|test|chore)(\([a-zA-Z \-]+\))?!?: .+$"
+
+# Get the commit message (the parameter we're given is jut the path to the
+# temporary file which holds the message)
+commit_message=$(cat "$1")
+
+# Check the message
+if [[ "$commit_message" =~ $conventional_commit_regex ]]; then
+	echo -e "\033[32mCommit message meets conventional commit standards...\033[0m"
+	exit 0
+fi
+
+# Uh-oh, this is not a conventional commit, show an example and link to the spec
+echo -e "\033[31mThe commit message does not meet the conventional commit standard\033[0m"
+echo "The commit message needs to conform to the following form: "
+echo "	<type>[(<scope>)]: <subject> (don't capitalize subject)"
+echo "More details at: https://www.conventionalcommits.org/"
+exit 1
